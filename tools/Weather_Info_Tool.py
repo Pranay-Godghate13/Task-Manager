@@ -32,5 +32,5 @@ def get_weather_forecast()->WeatherForecast:
         temperature=result["main"]["temp"]
     )
 
-forecast=get_weather_forecast()
-print(forecast.description,forecast.temperature)
+#forecast=get_weather_forecast()
+#print(forecast.description,forecast.temperature)

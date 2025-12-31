@@ -1,9 +1,10 @@
-from crew import Agent,LLM
+from crewai import Agent,LLM
 from tools.Weather_Info_Tool import get_weather_forecast
 
 llm=LLM(
     model="groq/llama-3.3-70b-versatile",
-    temperature=0.2,
+    temperature=0.0,
+
 )
 
 weather_agent=Agent(

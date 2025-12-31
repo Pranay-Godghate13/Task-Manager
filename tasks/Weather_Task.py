@@ -1,4 +1,4 @@
-from crew import Task
+from crewai import Task
 from agents.Weather_Agent import weather_agent
 
 get_weather_analysis=Task(
@@ -10,5 +10,5 @@ get_weather_analysis=Task(
         "- Temperature\n"
         "- Any immediate ttrends or observations."
     ),
-    agent=[weather_agent]
+    agent=weather_agent
 )

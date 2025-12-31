@@ -1,4 +1,4 @@
-from crew import Task
+from crewai import Task
 from agents.Task_agent import task_agent
 
 assistant_analysis=Task(
@@ -12,5 +12,12 @@ assistant_analysis=Task(
                     "- Weather condition\n"
                     "- Any immediate trends or observations."
                     ),
-    agent=[task_agent]
+    inputs={
+        "task": "Task description",
+        "date": "Task date (DD-MM-YYYY)",
+        "time": "Task time (HH:MM)",
+        "status": "Task status (Scheduled/Pending/Completed)"
+    },
+
+    agent=task_agent
 )
