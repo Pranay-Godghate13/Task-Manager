@@ -20,6 +20,7 @@ def add_task_to_db(task: str,due_date: str,reminder_time):
     """
         Add task to database.
     """
+    init_db()
     conn=sqlite3.connect("tasks.db")
     cursor=conn.cursor()
     cursor.execute("INSERT INTO tasks(task,date,reminder_time) values(?,?,?)",(task,due_date,reminder_time))
