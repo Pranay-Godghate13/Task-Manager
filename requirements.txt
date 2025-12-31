@@ -1,2 +1,5 @@
 crew
 crewai_tools
+python-dotenv
+requests
+sqlite3
