@@ -3,3 +3,4 @@ crewai_tools
 python-dotenv
 requests
 sqlite3
+datetime

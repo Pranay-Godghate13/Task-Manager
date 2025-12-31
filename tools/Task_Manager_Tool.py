@@ -8,16 +8,18 @@ def init_db():
         CREATE TABLE IF NOT EXISTS tasks(
                    id INTEGER PRIMARY KEY AUTOINCREMENT,
                    task TEXT NOT NULL,
-                   date TEXT NOT NULL)
+                   date TEXT NOT NULL,
+                   reminder_time TEXT NOT NULL,
+                   status TEXT DEFAULT 'Pending')
 """)
     conn.commit()
     conn.close()
 
 @tools("Add tasks to database")
-def add_task_to_db(task: str,due_date: str):
+def add_task_to_db(task: str,due_date: str,reminder_time):
     conn=sqlite3.connect("tasks.db")
     cursor=conn.cursor()
-    cursor.execute("INSERT INTO tasks(task,date) values(?,?)",(task,due_date))
+    cursor.execute("INSERT INTO tasks(task,date,reminder_time) values(?,?,?)",(task,due_date,reminder_time))
     conn.commit()
     conn.close()
 
