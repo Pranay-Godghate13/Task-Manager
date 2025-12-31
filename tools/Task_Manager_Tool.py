@@ -1,5 +1,5 @@
 import sqlite3
-from crew.ai import tools
+from crewai.tools import tool
 
 def init_db():
     conn=sqlite3.connect("tasks.db")
@@ -15,16 +15,22 @@ def init_db():
     conn.commit()
     conn.close()
 
-@tools("Add tasks to database")
+@tool("Add tasks to database")
 def add_task_to_db(task: str,due_date: str,reminder_time):
+    """
+        Add task to database.
+    """
     conn=sqlite3.connect("tasks.db")
     cursor=conn.cursor()
     cursor.execute("INSERT INTO tasks(task,date,reminder_time) values(?,?,?)",(task,due_date,reminder_time))
     conn.commit()
     conn.close()
 
-@tools("List all the tasks")
+@tool("List all the tasks")
 def list_task():
+    """
+       List tasks from database.
+    """
     conn=sqlite3.connect("tasks.db")
     cursor=conn.cursor()
     cursor.execute("SELECT * FROM tasks")
@@ -32,8 +38,11 @@ def list_task():
         print(f"{row[0]}. Task: {row[1]} | Date: {row[2]}")
     conn.close()
 
-@tools("Delete tasks")
+@tool("Delete tasks")
 def delete_task(task_id: int):
+    """
+       Delete tasks from database.
+    """
     conn=sqlite3.connect("tasks.db")
     cursor=conn.cursor()
     cursor.execute("DELETE FROM tasks where id=?",(task_id,))

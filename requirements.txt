@@ -1,5 +1,5 @@
 crew
-crewai_tools
+crewai-tools
 python-dotenv
 requests
 sqlite3
